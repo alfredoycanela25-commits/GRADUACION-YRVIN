@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo elegante animado */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2980);
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Contenedor */
+.invitation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 5;
+}
+
+/* Tarjeta elegante */
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    max-width: 520px;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    animation: fadeIn 1.2s ease;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.details p {
+    margin: 10px 0;
+}
+
+.countdown {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffcc00;
+}
+
+/* Mapa */
+.map-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Botón */
+.btn {
+    margin-top: 25px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+/* Confeti */
+.confetti-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    top: -20px;
+    animation: fall 5s linear infinite;
+    background: red;
+}
+
+.confetti:nth-child(2){left:20%;background:blue;animation-delay:1s}
+.confetti:nth-child(3){left:40%;background:green;animation-delay:2s}
+.confetti:nth-child(4){left:60%;background:yellow;animation-delay:3s}
+.confetti:nth-child(5){left:80%;background:purple;animation-delay:4s}
+
+/* Globos */
+.balloons {
+    position: fixed;
+    bottom: -150px;
+    width: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.balloon {
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    animation: float 10s infinite linear;
+}
+
+.red { background: red; left: 10%; }
+.blue { background: blue; left: 30%; animation-delay:2s }
+.green { background: green; left: 50%; animation-delay:4s }
+.yellow { background: gold; left: 70%; animation-delay:6s }
+
+/* Fuegos artificiales */
+.fireworks {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 3s infinite;
+    top: 30%;
+    left: 50%;
+}
+
+.firework:nth-child(2){top:50%;left:20%;animation-delay:1s}
+.firework:nth-child(3){top:20%;left:80%;animation-delay:2s}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float {
+    to { transform: translateY(-120vh); }
+}
+
+@keyframes explode {
+    0% { transform: scale(0); opacity:1 }
+    50% { transform: scale(3); opacity:1 }
+    100% { transform: scale(0); opacity:0 }
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(40px) }
+    to { opacity:1; transform:translateY(0) }
+}
