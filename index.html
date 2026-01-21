@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiesta de Graduación de Yrvín</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!-- Fondo animado -->
+    <div class="background"></div>
+
+    <!-- Confeti -->
+    <div class="confetti-container">
+        <span class="confetti"></span><span class="confetti"></span><span class="confetti"></span>
+        <span class="confetti"></span><span class="confetti"></span>
+    </div>
+
+    <!-- Globos -->
+    <div class="balloons">
+        <div class="balloon red"></div>
+        <div class="balloon blue"></div>
+        <div class="balloon green"></div>
+        <div class="balloon yellow"></div>
+    </div>
+
+    <!-- Fuegos artificiales -->
+    <div class="fireworks">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+    </div>
+
+    <div class="invitation-container">
+        <div class="card">
+            <h1>🎓 Fiesta de Graduación 🎉</h1>
+            <h2>Yrvin</h2>
+
+            <p class="message">
+                Celebremos este gran logro con una tarde llena de alegría, música y diversión.
+            </p>
+
+            <div class="details">
+                <p><strong>📅 Fecha y Hora:</strong> 25 de enero del 2026 a la 1:00pm</p>
+                <p><strong>🏆 Graduado:</strong> Yrvin</p>
+            </div>
+
+            <h3>⏳ Cuenta regresiva</h3>
+            <div id="countdown" class="countdown">Cargando...</div>
+
+            <h3>📍 Ubicación</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!4v1768963522313!6m8!1m7!1soWqXJVuGGfY25NIj6h7RWA!2m2!1d-13.39759811873214!2d-76.15554684733014!3f293.33406517270663!4f-20.421747740211984!5f0.777656250961775" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <br>
+            <h3>Tarjeta de invitación hecho por Eliseo Pachas</h3>
+        </div>
+    </div>
+
+<script>
+const countdown = document.getElementById("countdown");
+const eventDate = new Date("January 25, 2026 13:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+        countdown.innerHTML = "🎉 ¡Hoy es la gran fiesta! 🎓";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `${days} días · ${hours} h · ${minutes} min · ${seconds} s`;
+}, 1000);
+</script>
+
+</body>
+</html>
